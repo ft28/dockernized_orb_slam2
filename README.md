@@ -15,8 +15,8 @@ nvidia、amdのグラフィックカードを使った環境でなければ動�
 
 ```
 git clone https://github.com/ft28/dockernized_orb_slam2.git 
-git submodule init
-git submodule update
+cd dockernized_orb_slam2
+git submodule update --init --recursive
 ```
 
 .bashrc に以下の設定を書き込みます。
