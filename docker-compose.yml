@@ -13,6 +13,7 @@ services:
        - user_name=${USER_NAME}
        - group_name=${GROUP_NAME}
     user: ${USER_ID}:${GROUP_ID}
+#    user: ${USER_ID}:0
     privileged: true
     devices:
        - "/dev/dri:/dev/dri"

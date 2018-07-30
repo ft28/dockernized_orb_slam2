@@ -9,7 +9,9 @@ fi
 
 export HOME=/home/${user_name}
 
-groupadd -g ${group_id} ${group_name} 
+if [ ${group_id} != "0" ]; then
+    groupadd -g ${group_id} ${group_name}
+fi
 useradd --gid ${group_id} --uid ${user_id} -M -d ${HOME} ${user_name}  -s /bin/bash
 
 cd ${HOME}
