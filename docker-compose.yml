@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  orb_slam2_ros:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+       - XAUTHORITY=${XAUTH}
+       - DISPLAY=${DISPLAY}
+       - QT_X11_NO_MITSHM=1
+       - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+       - user_name=${USER_NAME}
+       - group_name=${GROUP_NAME}
+    user: ${USER_ID}:${GROUP_ID}
+    privileged: true
+    devices:
+       - "/dev/dri:/dev/dri"
+       - "/dev/video0:/dev/video0"
+       - "/dev/video1:/dev/video1"
+    volumes:
+       - "/tmp/.X11-unix:/tmp/.X11-unix"
+       - "${XSOCK}:${XSOCK}:rw"
+       - "${XAUTH}:${XAUTH}:rw"
+       - "${XDG_RUNTIME_DIR}=${XDG_RUNTIME_DIR}"
+       - "${PWD}/orb_slam2_ros_home:/home/${USER_NAME}"
+       - "${PWD}/ORB_SLAM2:/home/${USER_NAME}/ORB_SLAM2"
+       - "/opt/data:/opt/data"
+       - "/dev/video0:/dev/video0:rw"
+       - "/dev/video1:/dev/video1:rw"
