@@ -35,9 +35,7 @@ if [ ! -e catkin_ws/src ]; then
     cd ..
     catkin_make
     source devel/setup.bash
-    rosdep update
     rosdep install tf
-    rosdep make tf
     # compile ORB_SLAM2 ROS
     cd ${HOME}
     export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:${HOME}/ORB_SLAM2/Examples/ROS

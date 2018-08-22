@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -q -y dirmngr  gnupg2 lsb-release  && \
     apt-get install -y ros-kinetic-vision-opencv && \
     apt-get install -y ros-kinetic-usb-cam && \
     apt-get install -y guvcview  && \
-    rosdep init
+    rosdep init && \
+    rosdep update
 
 WORKDIR /opt
 
